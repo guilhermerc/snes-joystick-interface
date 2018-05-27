@@ -6,7 +6,7 @@ volatile uint8_t currently_state = 0;
 
 //https://www.instructables.com/id/Arduino-Timer-Interrupts/
 
-void button_reading();
+void button_sending();
 
 // put your setup code here, to run once
 void setup()
@@ -55,19 +55,19 @@ ISR(TIMER0_COMPA_vect)
   {
     switch(currently_state % 2)
     {
-    case 0:
-    {
-      digitalWrite(LATCH, LOW);
-      digitalWrite(CLOCK, HIGH);
-      break;
-    }   
-    case 1:
-    {
-      digitalWrite(LATCH, LOW);
-      digitalWrite(CLOCK, LOW);
-    } 
+      case 0:
+      {
+        digitalWrite(LATCH, LOW);
+        digitalWrite(CLOCK, HIGH);
+        break;
+      }   
+      case 1:
+      {
+        digitalWrite(LATCH, LOW);
+        digitalWrite(CLOCK, LOW);
+      } 
     }
-    button_reading();
+    button_sending();
   }
   else
   {
@@ -78,68 +78,71 @@ ISR(TIMER0_COMPA_vect)
   currently_state++;
 }
 
-void button_reading()
+void button_sending()
 {
-  switch(currently_state)
+  if(!digitalRead(SERIAL_DATA))
   {
-    case 3: // B button
+    switch(currently_state)
     {
-      Serial.println("B");
-      break;
-    }
-    case 5: // Y button
-    {
-      Serial.println("Y");
-      break;
-    }
-    case 7: // SELECT button
-    {
-      Serial.println("SELECT");
-      break;
-    }
-    case 9: // START button
-    {
-      Serial.println("START");
-      break;
-    }
-    case 11: // UP button
-    {
-      Serial.println("UP");
-      break;
-    }
-    case 13: // DOWN button
-    {
-      Serial.println("DOWN");
-      break;
-    }
-    case 15: // LEFT button
-    {
-      Serial.println("LEFT");
-      break;
-    }
-    case 17: // RIGHT button
-    {
-      Serial.println("RIGHT");
-      break;
-    }
-    case 19: // A button
-    {
-      Serial.println("A");
-      break;
-    }
-    case 21: // X button
-    {
-      Serial.println("X");
-      break;
-    }
-    case 23: // L button
-    {
-      Serial.println("L");
-      break;
-    }
-    case 25: // R button
-    {
-      Serial.println("R");
+      case 3: // B button
+      {
+        Serial.println("B");
+        break;
+      }
+      case 5: // Y button
+      {
+        Serial.println("Y");
+        break;
+      }
+      case 7: // SELECT button
+      {
+        Serial.println("SELECT");
+        break;
+      }
+      case 9: // START button
+      {
+        Serial.println("START");
+        break;
+      }
+      case 11: // UP button
+      {
+        Serial.println("UP");
+        break;
+      }
+      case 13: // DOWN button
+      {
+        Serial.println("DOWN");
+        break;
+      }
+      case 15: // LEFT button
+      {
+        Serial.println("LEFT");
+        break;
+      }
+      case 17: // RIGHT button
+      {
+        Serial.println("RIGHT");
+        break;
+      }
+      case 19: // A button
+      {
+        Serial.println("A");
+        break;
+      }
+      case 21: // X button
+      {
+        Serial.println("X");
+        break;
+      }
+      case 23: // L button
+      {
+        Serial.println("L");
+        break;
+      }
+      case 25: // R button
+      {
+        Serial.println("R");
+      }
     }
   }
 }
