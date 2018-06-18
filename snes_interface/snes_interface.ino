@@ -86,62 +86,62 @@ void button_sending()
     {
       case 3: // B button
       {
-        Serial.println("B");
+        Serial.print("B");
         break;
       }
       case 5: // Y button
       {
-        Serial.println("Y");
+        Serial.print("Y");
         break;
       }
       case 7: // SELECT button
       {
-        Serial.println("SELECT");
+        Serial.print("2");
         break;
       }
       case 9: // START button
       {
-        Serial.println("START");
+        Serial.print("1");
         break;
       }
       case 11: // UP button
       {
-        Serial.println("UP");
+        Serial.print("U");
         break;
       }
       case 13: // DOWN button
       {
-        Serial.println("DOWN");
+        Serial.print("D");
         break;
       }
       case 15: // LEFT button
       {
-        Serial.println("LEFT");
+        Serial.print("L");
         break;
       }
       case 17: // RIGHT button
       {
-        Serial.println("RIGHT");
+        Serial.print("R");
         break;
       }
       case 19: // A button
       {
-        Serial.println("A");
+        Serial.print("A");
         break;
       }
       case 21: // X button
       {
-        Serial.println("X");
+        Serial.print("X");
         break;
       }
       case 23: // L button
       {
-        Serial.println("L");
+        Serial.print("3");
         break;
       }
       case 25: // R button
       {
-        Serial.println("R");
+        Serial.print("4");
       }
     }
   }
